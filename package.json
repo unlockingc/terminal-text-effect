@@ -1,0 +1,29 @@
+{
+    "name": "terminal-text-effect",
+    "version": "0.9.0",
+    "description": "SGR wrapper for js. Make effect text (color, rgb, bold underline etc) for terminal console.log",
+    "main": "dist/cjs/index.js",
+    "module": "dist/mjs/index.js",
+    "exports": {
+        ".": {
+            "import": "./dist/mjs/index.js",
+            "require": "./dist/cjs/index.js"
+        }
+    },
+    "repository": "https://github.com/unlockingc/terminal-text-effect",
+    "author": "unlockingc",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/jest": "^27.0.3",
+        "@types/node": "^16.11.9",
+        "eslint": "^8.3.0",
+        "jest": "^27.3.1",
+        "ts-jest": "^27.0.7",
+        "ts-node": "^10.4.0",
+        "typescript": "^4.5.2"
+    },
+    "scripts": {
+        "build": "tsc -p tsconfig.mjs.json && tsc -p tsconfig.cjs.json",
+        "test": "jest -c jest.config.cjs.js && jest -c jest.config.mjs.js"
+    }
+}
