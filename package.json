@@ -1,7 +1,13 @@
 {
     "name": "terminal-text-effect",
-    "version": "1.0.0",
-    "keywords": ["color", "log", "terminal", "text", "SGR"],
+    "version": "1.0.1",
+    "keywords": [
+        "color",
+        "log",
+        "terminal",
+        "text",
+        "SGR"
+    ],
     "description": "SGR wrapper for js. Make effect text (color, rgb, bold underline etc) for terminal console.log",
     "main": "dist/cjs/index.js",
     "module": "dist/mjs/index.js",
