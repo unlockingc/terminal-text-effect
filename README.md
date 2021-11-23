@@ -1,11 +1,11 @@
 # Terminal Effect Text
 
 ## Introduction
-Terminal effect text made easy. color log and everything you need.
+Terminal effect text made easy. Color log and everything you need.
 
-a simple wrapper of [SGR (Select Graphic Rendition) parameters](https://en.wikipedia.org/wiki/ANSI_escape_code)
+A simple wrapper of [SGR (Select Graphic Rendition) parameters](https://en.wikipedia.org/wiki/ANSI_escape_code).
 
-some parameter are not support by some terminal, see details in https://en.wikipedia.org/wiki/ANSI_escape_code
+Some parameter are not support by some terminal, see details in https://en.wikipedia.org/wiki/ANSI_escape_code
 
 ## Usage
 1. install
