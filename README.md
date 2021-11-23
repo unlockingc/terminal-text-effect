@@ -16,6 +16,7 @@ yarn add terminal-text-effect #yarn
 2. code
 ```js
 import { EffectedTerminalText as ett } from "terminal-text-effect";
+//or import ett from "terminal-text-effect"
 
 let effect = ett.newEffect().setForegroundColorByRGB(255, 255, 0);
 
@@ -43,7 +44,7 @@ effect1
 ## CommonJs or ESM
 ```js
 //commonjs
-const ett = require("terminal-text-effect") 
+const ett = require("terminal-text-effect").default
 //typescript and esm
 import ett from "terminal-text-effect"; 
 //or
