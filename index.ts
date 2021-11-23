@@ -89,8 +89,7 @@ export namespace EffectedTerminalText {
         }
 
         reset(): EffectedText {
-            this.#controlSequence =
-                CONTROL_SEQUENCE_INTRODUCER + SGR.reset + SGR_FUNC_NAME;
+            this.#controlSequence = "";
             return this;
         }
 
@@ -333,7 +332,8 @@ export namespace EffectedTerminalText {
 
         setForegroundColorByRGBHex(code: string): EffectedText {
             function RGBFromHex(code: string): [number, number, number] {
-                let reg = /^#([\dabcdef]{2})([\dabcdef]{2})([\dabcdef]{2})$/;
+                let reg =
+                    /^#([\dabcdefABCDEF]{2})([\dabcdefABCDEF]{2})([\dabcdefABCDEF]{2})$/;
                 if (!code.match(reg)) {
                     return [0, 0, 0];
                 } else {
@@ -452,7 +452,8 @@ export namespace EffectedTerminalText {
 
         setBackgroundColorByRGBHex(code: string): EffectedText {
             function RGBFromHex(code: string): [number, number, number] {
-                let reg = /^#([\dabcdef]{2})([\dabcdef]{2})([\dabcdef]{2})$/;
+                let reg =
+                    /^#([\dabcdefABCDEF]{2})([\dabcdefABCDEF]{2})([\dabcdefABCDEF]{2})$/;
                 if (!code.match(reg)) {
                     return [0, 0, 0];
                 } else {
@@ -729,7 +730,23 @@ export namespace EffectedTerminalText {
 
         printAndReset(...args: any[]): EffectedText {
             this.print(...args);
-            this.#controlSequence = "";
+            this.reset();
+            return this;
+        }
+
+        #messageBuffer: any[] = [];
+        bufferToPrint(...args: any[]): EffectedText {
+            this.#messageBuffer = this.#messageBuffer.concat([
+                this.#controlSequence,
+                ...args,
+                this.#addResetTag(),
+            ]);
+            return this;
+        }
+
+        commitPrint(): EffectedText {
+            this.print(...this.#messageBuffer);
+            this.#messageBuffer = [];
             return this;
         }
     }

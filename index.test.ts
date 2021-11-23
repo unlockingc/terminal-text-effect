@@ -1,20 +1,31 @@
 import { EffectedTerminalText as ett } from "./index.js";
 
-test("hello world", () => {});
-
 let effect = ett.newEffect().setForegroundColorByRGB(50, 255, 0);
 
-console.log(effect.parse("effected text"));
+console.log(effect.parse("RGB(50,255,0) [need terminal support]"));
 
-effect.strike().bold().foregroundColorRed();
+effect.setBackgroundColorByRGBHex("#00FFFF");
 
-console.log(effect.parse("updated effected text"));
+console.log(effect.parse("text: RGB(50,255,0), background: #00ffff "));
+
+console.log(
+    effect.strike().bold().red().parse("add strike bold, change text color to red")
+);
+
+let effect1 = ett.newEffect();
+
+effect1
+    .red().bufferToPrint("red")
+    .backgroundColorBlue().bufferToPrint("bg blue", "text red")
+    .reset().yellow().bufferToPrint("yellow")
+    .commitPrint()
+    .bold().print("bold yellow another line");
 
 effect
-    .print("asda", "asdas", "asdas")
+    .print("I'm strike bold and red", "me too")
     .blue()
-    .printAndReset("asdas", "asda", "blue")
-    .print("asfasfgsfa");
+    .printAndReset("I'm blue but still strike and red", " yeah")
+    .print("I have no effect");
 
 console.log(ett.newEffect().foregroundColorBrightGreen().parse("green text"));
 console.log("normal");
@@ -48,3 +59,4 @@ console.log(
 );
 
 console.log();
+test("hello world", () => {});
