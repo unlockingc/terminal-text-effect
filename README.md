@@ -8,6 +8,12 @@ a simple wrapper of [SGR (Select Graphic Rendition) parameters](https://en.wikip
 some parameter are not support by some terminal, see details in https://en.wikipedia.org/wiki/ANSI_escape_code
 
 ## Usage
+1. install
+```bash
+npm install terminal-text-effect #npm
+yarn add terminal-text-effect #yarn
+```
+2. code
 ```js
 import { EffectedTerminalText as ett } from "terminal-text-effect";
 
