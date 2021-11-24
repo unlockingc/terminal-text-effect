@@ -97,6 +97,8 @@ export declare namespace EffectedTerminalText {
         printAndReset(...args: any[]): EffectedText;
         bufferToPrint(...args: any[]): EffectedText;
         commitPrint(): EffectedText;
+        clearBuffer(): EffectedText;
+        mergeEffect(other: EffectedText): EffectedText;
     }
     function newEffect(): EffectedText;
 }

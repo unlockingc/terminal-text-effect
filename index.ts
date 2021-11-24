@@ -82,14 +82,14 @@ export namespace EffectedTerminalText {
     export class EffectedText {
         constructor() {}
 
-        #controlSequence: string = "";
+        #controlSequence: string = this.#addResetTag();
 
         #addResetTag(): string {
             return CONTROL_SEQUENCE_INTRODUCER + SGR.reset + SGR_FUNC_NAME;
         }
 
         reset(): EffectedText {
-            this.#controlSequence = "";
+            this.#controlSequence = this.#addResetTag();
             return this;
         }
 
@@ -745,10 +745,25 @@ export namespace EffectedTerminalText {
         }
 
         commitPrint(): EffectedText {
-            this.print(...this.#messageBuffer);
+            console.log(...this.#messageBuffer);
             this.#messageBuffer = [];
             return this;
         }
+
+        clearBuffer(): EffectedText {
+            this.#messageBuffer = [];
+            return this;
+        }
+
+        mergeEffect(other: EffectedText): EffectedText {
+            this.#controlSequence += other.#controlSequence;
+            return this;
+        }
+
+        // subtractEffect(other: EffectedText): EffectedText {
+        //     //todo
+        //     return this;
+        // }
     }
 
     export function newEffect(): EffectedText {

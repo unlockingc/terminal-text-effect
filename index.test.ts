@@ -1,4 +1,4 @@
-import { EffectedTerminalText as ett } from "./index.js";
+import ett from "./index.js";
 
 let effect = ett.newEffect().setForegroundColorByRGB(50, 255, 0);
 
@@ -9,17 +9,26 @@ effect.setBackgroundColorByRGBHex("#00FFFF");
 console.log(effect.parse("text: RGB(50,255,0), background: #00ffff "));
 
 console.log(
-    effect.strike().bold().red().parse("add strike bold, change text color to red")
+    effect
+        .strike()
+        .bold()
+        .red()
+        .parse("add strike bold, change text color to red")
 );
 
 let effect1 = ett.newEffect();
 
 effect1
-    .red().bufferToPrint("red")
-    .backgroundColorBlue().bufferToPrint("bg blue", "text red")
-    .reset().yellow().bufferToPrint("yellow")
+    .red()
+    .bufferToPrint("red")
+    .backgroundColorBlue()
+    .bufferToPrint("bg blue", "text red")
+    .reset()
+    .yellow()
+    .bufferToPrint("yellow")
     .commitPrint()
-    .bold().print("bold yellow another line");
+    .bold()
+    .print("bold yellow another line");
 
 effect
     .print("I'm strike bold and red", "me too")
