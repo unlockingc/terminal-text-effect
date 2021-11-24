@@ -1,6 +1,6 @@
 export namespace EffectedTerminalText {
-    export const CONTROL_SEQUENCE_INTRODUCER = "\x1b[";
-    export const SGR_FUNC_NAME = "m";
+    const CONTROL_SEQUENCE_INTRODUCER = "\x1b[";
+    const SGR_FUNC_NAME = "m";
 
     enum SGR {
         reset = "0",
@@ -79,7 +79,7 @@ export namespace EffectedTerminalText {
         backgroundColorBrightWhite = "107",
     }
 
-    class EffectedText {
+    export class EffectedText {
         constructor() {}
 
         #controlSequence: string = "";

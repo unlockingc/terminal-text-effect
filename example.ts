@@ -1,5 +1,4 @@
 import ett from "./index.js";
-
 let effect = ett.newEffect().setForegroundColorByRGB(255, 255, 0);
 
 console.log(effect.parse("RGB(255,255,0) [need terminal support]"));

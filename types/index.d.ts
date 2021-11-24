@@ -1,6 +1,4 @@
 export declare namespace EffectedTerminalText {
-    export const CONTROL_SEQUENCE_INTRODUCER = "\u001B[";
-    export const SGR_FUNC_NAME = "m";
     class EffectedText {
         #private;
         constructor();
@@ -100,8 +98,7 @@ export declare namespace EffectedTerminalText {
         bufferToPrint(...args: any[]): EffectedText;
         commitPrint(): EffectedText;
     }
-    export function newEffect(): EffectedText;
-    export {};
+    function newEffect(): EffectedText;
 }
 export default EffectedTerminalText;
 //# sourceMappingURL=index.d.ts.map
