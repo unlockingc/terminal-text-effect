@@ -32,7 +32,7 @@ effect1
 effect
     .print("I'm strike bold and red", "me too")
     .blue()
-    .printAndReset("I'm blue but still strike and red", " yeah")
+    .printAndReset("I'm blue but still strike", " yeah")
     .print("I have no effect");
 
 function error(...args: any[]) {

@@ -82,14 +82,14 @@ export namespace EffectedTerminalText {
     export class EffectedText {
         constructor() {}
 
-        #controlSequence: string = this.#addResetTag();
+        #controlSequence: string = "";
 
         #addResetTag(): string {
             return CONTROL_SEQUENCE_INTRODUCER + SGR.reset + SGR_FUNC_NAME;
         }
 
         reset(): EffectedText {
-            this.#controlSequence = this.#addResetTag();
+            this.#controlSequence = "";
             return this;
         }
 
